@@ -1,12 +1,12 @@
 sudo: required
-
 language: python
-
 services:
-  - docker
-
+- docker
 before_install:
-  - ./build.sh
-
+- "./build.sh"
 script:
-  - ./run.sh
+- "./run.sh"
+deploy:
+  provider: heroku
+  api_key:
+    secure: tw6oY8wcSOyF53aLSyh8MifQxnd+1cHSZgp+PHHIFkNYbz469gAQSPBZGyVxoXXCXqS3tZFyN7ICsjlqQznKjeZYN+EG6eFYFtfFr8HU6i2YPJkjeyM16GYrWijuOSMg9iUKnwyrTbDrtE4u/rFoa6DdyAy5bJFrGrcE4x/Qd6Ga0aNSveukuiw5cXDGSujIBZn6DI+lqtNYZTY+cZuyMdiBPgUGPn8gEh8BofeujVmUijzH0M9MWazkJ9pBQXwYL9D+5yHmYYsJ1/N7OI4/WX+pRjNvwweh9H0bnfxMEC7vZX4k7spVxk4h0cYlBFxVrnaChQ3141KVEoto+AzGHApw6O3W73hJ/VImg91jtASGSRWxSRgaEuQaPkQs33qy578yRATV3FMKXlQJ7KmLD74rG27BHwFsYPwPOhJnKzjYhHxUNrp9f5uv1y7W9ZY77se2jnJLtJcXr5ZJJY2SvSYKp/ZY3AiRxd56grKtYlZ08zYhHn1uj7f2xvbtb8sRiAGQrTwctw2hmeudiKMS4ONeUqxHQDS4rjHJ53qWO9+o0hS4OjqBCYe6vN4ILkzFnrJ+3cYI1rcwhG3vjHumtoNy/vVyoJzmT/lAgYWH47PwqWNjp7qPymJ9LGX017UapO9VewqzJKZ1b/rnuynJmHV8XEb7/DWeDteJiY+cqX8=
