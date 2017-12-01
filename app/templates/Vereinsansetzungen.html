@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Vereinsansetzungen für {{ selectedClub.name }}{% endblock %}
+{% block content %}
+    <table border="0">
+      <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Zeit</th>
+          <th>Spielnummer</th>
+          <th>Heimmannschaft</th>
+          <th>Gastmannschaft</th>
+          <th>Schiedsrichter A</th>
+          {% if renderRefereeClubs %}<th>Verein von Schiedsrichter A</th>{% endif %}
+          <th>Schiedsrichter B</th>
+          {% if renderRefereeClubs %}<th>Verein von Schiedsrichter B</th>{% endif %}
+        </tr>
+      </thead>
+      <tbody>
+      {% for game in games %}
+        <tr>
+          <td>{{ game.timestamp.strftime('%d.%m.%Y') }}</td>
+          <td>{{ game.timestamp.strftime('%H:%M') }}</td>
+          <td>{{ game.no }}</td>
+          <td>{{ game.homeTeam.name }}</td>
+          <td>{{ game.guestTeam.name }}</td>
+          <td>{{ game.firstReferee.name }}</td>
+          {% if renderRefereeClubs %}<td>{{ game.firstReferee.club.name if game.firstReferee != None }}</td>{% endif %}
+          <td>{{ game.secondReferee.name }}</td>
+          {% if renderRefereeClubs %}<td>{{ game.secondReferee.club.name if game.secondReferee != None }}</td>{% endif %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+{% endblock %}
